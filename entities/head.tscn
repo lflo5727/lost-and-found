@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnaq4csap4y67"]
+
+[ext_resource type="Texture2D" uid="uid://lkcr8vcvo2m7" path="res://assets/elhead.png" id="1_nuap4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rel8s"]
+atlas = ExtResource("1_nuap4")
+region = Rect2(3, 2, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkjhf"]
+atlas = ExtResource("1_nuap4")
+region = Rect2(24, 2, 23, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02q1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rel8s")
+}],
+"loop": true,
+"name": &"in-air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkjhf")
+}],
+"loop": true,
+"name": &"on-ground",
+"speed": 5.0
+}]
+
+[node name="head" type="Node2D"]
+scale = Vector2(6, 6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_02q1i")
+animation = &"on-ground"
